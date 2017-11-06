@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+			
+		</head>
+		<body>
+			<a-scene>
+				 <a-sky 
+					src="images/earth-sumner.jpg"
+				></a-sky>
+				 <a-assets>
+				 	
+    			 	<a-asset-item
+	    				id="model" 
+	    				src="3dmodel-cocaCola/model.dae">
+    			 	</a-asset-item>
+    				
+    				<a-asset-item
+	    				id="cocaImage" 
+	    				src="3dmodel-cocaCola/material_12.jpg">
+    				</a-asset-item>
+    				
+    				<a-assest-item
+    					id="paper"
+    					src="paper/model.dae"
+    				></a-assest-item>
+
+					<a-assest-item
+						id="straw"
+						scr="strawRed/model.dae"
+					></a-assest-item>
+
+		    	</a-assets>
+  
+  					<a-collada-model 
+	  					src="#model"
+	  					position="720 90 330" 
+	  					scale="-295 295 295">
+  					</a-collada-model>
+                	
+					<a-collada-model
+						src="#paper"
+						position="140 40 0"
+						scale="5 5 5"
+					></a-collada-model>
+                	
+              		<a-collada-model
+              			scr="#straw"
+              			position="0 0 0"
+              			scale="100 100 100"
+              		></a-collada-model>
+              		
+              		
+                	
+                	<video 
+                		id="melting" 
+                		autoplay loop="true" 
+                		src="videos/glacierMelting.mp4"
+                	></video> 
+                	
+                	<a-video 
+                		src="#melting" 
+                		width="80" 
+                		height="40" 
+                		position="-5 -60 -90"
+                	></a-video>
+                	
+                    <a-video 
+                    	src="glacierMelting.mp4"
+                    ></a-video>
+                    
+					<a-curvedimage 
+						src="#cocaImage" 
+						height="1" 
+						radius="0.3" 
+						theta-length="240" 
+						rotation="0 100 0" 
+						scale="-17.5 17.5 17.5"
+						position="210 62.5 -26"
+					></a-curvedimage>
+					
+                
+			</a-scene>
+		</body>
+	</html>
+	
+	https://3dwarehouse.sketchup.com/model/d2ec1854494ee30ff11d4627d961b27a/factory
