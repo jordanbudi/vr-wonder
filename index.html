@@ -20,7 +20,7 @@
 	    				id="cocaImage" 
 	    				src="3dmodel-cocaCola/material_12.jpg">
     				</a-asset-item>
-    				
+    		
     				<a-assest-item
     					id="paper"
     					src="paper/model.dae"
@@ -28,16 +28,21 @@
 
 					<a-assest-item
 						id="straw"
-						scr="strawRed/model.dae"
+						src="strawRed/model.dae"
 					></a-assest-item>
+					
+					<a-asset-item
+						id="ice"
+						src="iceberg/model.dae"
+					></a-asset-item>
 
 		    	</a-assets>
   
   					<a-collada-model 
 	  					src="#model"
 	  					position="720 90 330" 
-	  					scale="-295 295 295">
-  					</a-collada-model>
+	  					scale="-295 295 295"
+	  				></a-collada-model>
                 	
 					<a-collada-model
 						src="#paper"
@@ -46,9 +51,16 @@
 					></a-collada-model>
                 	
               		<a-collada-model
-              			scr="#straw"
-              			position="0 0 0"
-              			scale="100 100 100"
+              			src="#straw"
+              			position="82 12 -10"
+              			scale="-4 4 4 "
+              			rotation="9 30 0"
+              		></a-collada-model>
+              		
+              		<a-collada-model
+              			src="#ice"
+              			position="325 -5000 150"
+              			scale="205 205 205"
               		></a-collada-model>
               		
               		
@@ -69,6 +81,27 @@
                     <a-video 
                     	src="glacierMelting.mp4"
                     ></a-video>
+                    
+                    <!--<video-->
+                    <!--	id="#amazon"-->
+                    <!--	autoplay loop="true"-->
+                    <!--	src="videos/deforestation.mp3"-->
+                    <!--></video>-->
+                    
+                    <!--<a-video-->
+                    <!--	src="#amazon"-->
+                    <!--	width="80"-->
+                    <!--	height="40"-->
+                    <!--	position="0 0 0"-->
+                    <!--></a-video>-->
+                    
+                    <!--<a-video-->
+                    <!--	scr="deforestation.mp3"-->
+                    <!--></a-video>-->
+                    
+                    
+                    
+              
                     
 					<a-curvedimage 
 						src="#cocaImage" 
