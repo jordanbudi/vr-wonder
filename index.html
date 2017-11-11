@@ -2,15 +2,11 @@
 	<html>
 		<head>
 			<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-			
+			<script src="script.js"></script>
 		</head>
 		<body>
 			<a-scene>
-				 <a-sky 
-					src="images/earth-sumner.jpg"
-				></a-sky>
 				 <a-assets>
-				 	
     			 	<a-asset-item
 	    				id="model" 
 	    				src="3dmodel-cocaCola/model.dae">
@@ -35,19 +31,38 @@
 						id="ice"
 						src="iceberg/model.dae"
 					></a-asset-item>
-
 		    	</a-assets>
   
+  			<!--HOMEPAGE START	-->
+  				<a-entity id="homePage" visible="true">
+	  				 <a-sky 
+						src="images/earth-sumner.jpg"
+					></a-sky>
+  					
+  				<!--COCACOLA MODEL START-->
   					<a-collada-model 
 	  					src="#model"
 	  					position="720 90 330" 
 	  					scale="-295 295 295"
 	  				></a-collada-model>
+	  				
+  					<a-curvedimage 
+						src="#cocaImage" 
+						height="1" 
+						radius="0.3" 
+						theta-length="240" 
+						rotation="0 100 0" 
+						scale="-17.5 17.5 17.5"
+						position="210 62.5 -26"
+						onclick="sceneToGarbage()"
+					></a-curvedimage>
+                <!--COCACOLA MODEL END	-->
                 	
 					<a-collada-model
 						src="#paper"
 						position="140 40 0"
 						scale="5 5 5"
+						onclick="sceneToGarbage()"
 					></a-collada-model>
                 	
               		<a-collada-model
@@ -55,6 +70,7 @@
               			position="82 12 -10"
               			scale="-4 4 4 "
               			rotation="9 30 0"
+              			onclick="sceneToGarbage()"
               		></a-collada-model>
               		
               		<a-collada-model
@@ -63,8 +79,84 @@
               			scale="205 205 205"
               		></a-collada-model>
               		
+              		<a-sphere
+              			radius="4"
+              			position="40 -20 -40"
+              			color="aqua"
+              			onclick="sceneToCoral()"
               		
-                	
+              		></a-sphere>
+              		
+              	</a-entity>
+            <!--HOMEPAGE END-->
+            
+            
+        <!--SCENEGARBAGE START-->
+            <a-entity id="sceneGarbage" visible="false">
+            	<a-sky id="garbageSky" color="red"></a-sky>
+            	
+            	<a-sphere
+            		radius="8"
+            		position="33 11 -4"
+            		color="black"
+            	></a-sphere>
+            	
+            </a-entity>
+        <!--SCENEGARBAGE END-->
+            
+        <!--SCENE CORAL START-->
+            <a-entity id="sceneCoral" visible="false">
+            	<a-sky id="coralSky" color="blue"></a-sky>
+            	
+            	<a-sphere
+            		radius="1"
+            		position="1 0 -4"
+            		color="green"
+            	></a-sphere>
+            </a-entity>
+        <!--SCENE CORAL END-->
+        
+        <!--SCENE3 START-->
+            <a-entity id="scene3" visible="false">
+            	
+            </a-entity>
+        <!--SCENE3 END-->
+        
+        <!--SCENE4 START-->
+            <a-entity id="scene4" visible="false">
+            	
+            </a-entity>
+        <!--SCENE4 END-->
+        
+        <!--SCENE5 START-->
+            <a-entity id="scene5" visible="false">
+            	
+            </a-entity>
+        <!--SCENE5 END-->
+        
+    	<!--HOMEPAGE BUTTON START-->
+    		<a-box
+    			rotation="0 65 0"
+    			id="backButtonBox"
+    			visible="false"
+    			color="#99ffdd"
+    			height="1"
+    			width="2"
+    			depth="1"
+    			position="-4 2 -4"
+    			onclick="goBack()"
+    		>
+    			<a-text
+    				id="backButton"
+    				value="Return Home"
+    				position="-1 0 1"
+    				color="black"
+    			></a-text>
+    		</a-box>
+    	<!--HOMEPAGE BUTTON END-->
+              		
+            	<!--GLACIER VIDEO START-->
+            	<a-entity id="glacierVideo" visible="false">
                 	<video 
                 		id="melting" 
                 		autoplay loop="true" 
@@ -81,41 +173,60 @@
                     <a-video 
                     	src="glacierMelting.mp4"
                     ></a-video>
+                </a-entity>
+                <!--GLACIER VIDEO END-->
                     
-                    <!--<video-->
-                    <!--	id="#amazon"-->
-                    <!--	autoplay loop="true"-->
-                    <!--	src="videos/deforestation.mp3"-->
-                    <!--></video>-->
+                <!--AMAZON VIDEO START-->
+                 <a-entity id="amazonVideo" visible="false">
+                    <video
+                    	id="amazon"
+                    	autoplay loop="true"
+                    	src="videos/deforestation.mp4"
+                    ></video>
                     
-                    <!--<a-video-->
-                    <!--	src="#amazon"-->
-                    <!--	width="80"-->
-                    <!--	height="40"-->
-                    <!--	position="0 0 0"-->
-                    <!--></a-video>-->
+                    <a-video
+                    	src="#amazon"
+                    	width="14"
+                    	height="7"
+                    	position="-5 -3 20"
+                    ></a-video>
                     
-                    <!--<a-video-->
-                    <!--	scr="deforestation.mp3"-->
-                    <!--></a-video>-->
+                    <a-video
+                    	scr="deforestation.mp4"
+                    ></a-video>
+                </a-entity>
+                <!--AMAZON VIDEO END-->
+                    
+                <!--POLLUTION VIDEO START-->
+                <a-entity id="pollutionVideo" visible="false">
+               		<video
+                    	id="pollution"
+                    	autoplay loop="true"
+                    	src="videos/industrialPollution.mp4"
+                    ></video>
+                    
+                    <a-video
+                    	src="#pollution"
+                    	width="50"
+                    	height="25"
+                    	position="-65 75 0"
+                    	rotation="0 90 0"
+                    ></a-video>
+                    
+                    <a-video
+                    	src="industrialPollution.mp4"
+                    ></a-video>
+                </a-entity>
+                <!--POLLUTION VIDEO END-->
                     
                     
-                    
-              
-                    
-					<a-curvedimage 
-						src="#cocaImage" 
-						height="1" 
-						radius="0.3" 
-						theta-length="240" 
-						rotation="0 100 0" 
-						scale="-17.5 17.5 17.5"
-						position="210 62.5 -26"
-					></a-curvedimage>
+
 					
-                
+                	<a-camera>
+                		<a-cursor color="FFFFFF"/>
+                	</a-camera>
 			</a-scene>
 		</body>
 	</html>
 	
-	https://3dwarehouse.sketchup.com/model/d2ec1854494ee30ff11d4627d961b27a/factory
+	<!--https://3dwarehouse.sketchup.com/model/d2ec1854494ee30ff11d4627d961b27a/factory-->
